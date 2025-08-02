@@ -19,12 +19,14 @@ class AuthController extends Controller
      *     summary="User Registration",
      *     @OA\RequestBody(
      *         required=true,
-     *         @OA\JsonContent(
+     *          @OA\MediaType(
+     *            mediaType="multipart/form-data",
+     *         @OA\Schema(
      *             required={"name","email","password"},
-     *             @OA\Property(property="name", type="string"),
-     *             @OA\Property(property="email", type="string"),
-     *             @OA\Property(property="password", type="string")
-     *         )
+     *             @OA\Property(property="name", type="string", example="SM Sultan"),
+     *             @OA\Property(property="email", type="string", example="sm@sm.com"),
+     *             @OA\Property(property="password", type="text", example="test1234"),
+     *         ))
      *     ),
      *     @OA\Response(response=201, description="User registered"),
      * )
@@ -55,11 +57,14 @@ class AuthController extends Controller
      *     summary="User Login",
      *     @OA\RequestBody(
      *         required=true,
-     *         @OA\JsonContent(
+     *        @OA\MediaType(
+     *            mediaType="multipart/form-data",
+     *         @OA\Schema(
      *             required={"email","password"},
-     *             @OA\Property(property="email", type="string"),
-     *             @OA\Property(property="password", type="string")
+     *             @OA\Property(property="email", type="string", example="sm@sm.com"),
+     *             @OA\Property(property="password", type="string" , example="test1234")
      *         )
+     *        )
      *     ),
      *     @OA\Response(response=200, description="Login successful"),
      *     @OA\Response(response=401, description="Unauthorized")
